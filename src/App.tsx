@@ -23,6 +23,7 @@ export default function App() {
     smallSnake.turn();
     smallSnake.move(2);
     display(smallSnake.currentXPosition, smallSnake.currentYPosition);
+    display(bigSnake.position);
   }, []);
   return (
     <div className="App">
