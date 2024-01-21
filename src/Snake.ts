@@ -49,18 +49,47 @@ class Snake {
   }
 
   /**
-   * current of position of the snake
+   * current x position of the snake
    */
   public get currentXPosition(): number {
     return this.Position.X;
   }
+  /**
+   * current y position of the snake
+   */
   public get currentYPosition(): number {
     return this.Position.Y;
   }
 
-  public turnLeft(): void {}
+  /**
+   * make snake turn left.
+   */
+  public turnLeft(): void {
+    if (this.currentDirection === "right") {
+      this.currentDirection = "up";
+    } else if (this.currentDirection === "up") {
+      this.currentDirection = "left";
+    } else if (this.currentDirection === "left") {
+      this.currentDirection = "down";
+    } else if (this.currentDirection === "down") {
+      this.currentDirection = "right";
+    }
+  }
 
-  public turnRight(): void {}
+  /**
+   * make snake turn right.
+   */
+  public turnRight(): void {
+    if (this.currentDirection === "right") {
+      this.currentDirection = "down";
+    } else if (this.currentDirection === "down") {
+      this.currentDirection = "left";
+    } else if (this.currentDirection === "left") {
+      this.currentDirection = "up";
+    } else if (this.currentDirection === "up") {
+      this.currentDirection = "right";
+    }
+  }
 }
 
 export default Snake;

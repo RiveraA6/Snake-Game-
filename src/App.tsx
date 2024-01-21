@@ -20,6 +20,7 @@ export default function App() {
     bigSnake.move(8);
     display(smallSnake.currentXPosition, smallSnake.currentYPosition);
     display(bigSnake.currentXPosition, bigSnake.currentYPosition);
+    smallSnake.turn();
     smallSnake.move(2);
     display(smallSnake.currentXPosition, smallSnake.currentYPosition);
   }, []);
