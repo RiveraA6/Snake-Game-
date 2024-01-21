@@ -3,24 +3,26 @@ import "./App.css";
 import Snake from "./Snake";
 import display from "./display";
 import { useEffect } from "react";
-
+import world from "./WorldMode1";
 export default function App() {
   // Add Snake Tests with display below
   useEffect(() => {
     // Include your display statements to test below
     const smallSnake = new Snake("green");
     const bigSnake = new Snake("red");
+    let earthSnake = new Snake("blue");
+    const earth = new world(earthSnake);
     document.getElementById("output")!.innerText = "OUTPUT:\n";
     display("hey");
-    display(smallSnake.Position);
-    display(bigSnake.Position);
+    display(smallSnake.currentXPosition, smallSnake.currentYPosition);
+    display(bigSnake.currentXPosition, bigSnake.currentYPosition);
     smallSnake.move(4);
     bigSnake.move(8);
-    display(smallSnake.Position);
-    display(bigSnake.Position);
+    display(smallSnake.currentXPosition, smallSnake.currentYPosition);
+    display(bigSnake.currentXPosition, bigSnake.currentYPosition);
     smallSnake.turn();
     smallSnake.move(2);
-    display(smallSnake.Position);
+    display(smallSnake.currentXPosition, smallSnake.currentYPosition);
   }, []);
   return (
     <div className="App">

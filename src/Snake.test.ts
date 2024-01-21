@@ -1,39 +1,38 @@
- import Snake from "./Snake";
+import Snake from "./Snake";
 
-
-const moveSnakes = (times: number, turn: boolean = false) => {
+const moveSnakes = (times: number) => {
   const greenSnake = new Snake("green");
   const maroonSnake = new Snake("maroon");
-  let totalSquares = 0;
+  let mtotalSquares = 0;
+  let gtotalSquares = 0;
+  let left = false;
 
   for (let i = 0; i < times; i++) {
+    left = false;
     const numSquares1 = Math.floor(Math.random() * 100);
     const numSquares2 = Math.floor(Math.random() * 100);
-    greenSnake.move(numSquares1);
     maroonSnake.move(numSquares2);
-    greenSnake.move(5);
-    totalSquares += numSquares2;
-    if (turn) {
+    mtotalSquares += numSquares2;
+    greenSnake.move(numSquares1);
+    gtotalSquares += numSquares1;
+    maroonSnake.turn();
+    left = true;
+    if (left) {
       const numSquares3 = Math.floor(Math.random() * 100);
       const numSquares4 = Math.floor(Math.random() * 10);
-      greenSnake.turn();
-      maroonSnake.turn();
       maroonSnake.move(numSquares3);
-      totalSquares -= numSquares3;
-      greenSnake.move(numSquares3);
-      maroonSnake.turn();
-      maroonSnake.turn();
-      maroonSnake.turn();
+      mtotalSquares -= numSquares3;
       maroonSnake.move(numSquares4);
-      totalSquares += numSquares4;
+      mtotalSquares -= numSquares4;
+      maroonSnake.turn();
     }
   }
 
-  return { actual: maroonSnake.Position, expected: totalSquares };
+  return { actual: maroonSnake.currentXPosition, expected: mtotalSquares };
 };
 
 describe("Snake Tests", function () {
-  const tests = [0, 3, 10, 4].map((num, index) => moveSnakes(num, index > 2));
+  const tests = [0, 3, 10, 4].map((num) => moveSnakes(num));
 
   const testDescriptions = [
     "starts with the correct position of 0",
@@ -44,11 +43,10 @@ describe("Snake Tests", function () {
 
   testDescriptions.forEach((description, index) => {
     it(description, () =>
-      expect(tests[index].expected).toBe(tests[index].actual),
+      expect(tests[index].expected).toEqual(tests[index].actual),
     );
   });
 });
-
 
 describe("Addition", function () {
   it("sums numbers", () => {
