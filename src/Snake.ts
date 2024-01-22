@@ -29,10 +29,10 @@ class Snake {
       this.Position = new Point(oldx - numberOfSteps, this.Position.y);
     } else if (this.currentDirection === "up") {
       let oldy = this.Position.y;
-      this.Position = new Point(this.Position.x, oldy + numberOfSteps);
+      this.Position = new Point(this.Position.x, oldy - numberOfSteps);
     } else if (this.currentDirection === "down") {
       let oldy = this.Position.y;
-      this.Position = new Point(this.Position.x, oldy - numberOfSteps);
+      this.Position = new Point(this.Position.x, oldy + numberOfSteps);
     }
   }
 
