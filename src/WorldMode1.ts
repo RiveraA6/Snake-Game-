@@ -18,17 +18,5 @@ class WorldMode1 {
   public update(steps: number): void {
     this.snake.move(steps);
   }
-  /**
-   * Current x position of the snake
-   */
-  public get snakeX(): number {
-    return this.snake.currentXPosition;
-  }
-  /**
-   * Current y position of the snake
-   */
-  public get snakeY(): number {
-    return this.snake.currentYPosition;
-  }
 }
 export default WorldMode1;
