@@ -23,6 +23,7 @@ class WorldMode1 {
   public update(steps: number): void {
     this.Snake.move(steps);
   }
+  
   /** Get the width of the world */
   public get width(): number {
     return this.Width;
