@@ -14,16 +14,12 @@ export default function App() {
     const earth = new world(earthSnake);
     document.getElementById("output")!.innerText = "OUTPUT:\n";
     display("hey");
-    display(smallSnake.currentXPosition, smallSnake.currentYPosition);
-    display(bigSnake.currentXPosition, bigSnake.currentYPosition);
     smallSnake.move(4);
     bigSnake.move(8);
-    display(smallSnake.currentXPosition, smallSnake.currentYPosition);
-    display(bigSnake.currentXPosition, bigSnake.currentYPosition);
     smallSnake.turn();
-    smallSnake.move(2);
-    display(smallSnake.currentXPosition, smallSnake.currentYPosition);
-    display(bigSnake.position);
+    earth.update(6);
+    display(earthSnake.position.x, earthSnake.position.y);
+    display(earthSnake.direction);
   }, []);
   return (
     <div className="App">
