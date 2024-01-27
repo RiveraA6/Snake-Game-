@@ -8,6 +8,7 @@ it("moves correctly", function () {
   worldSnake.turn();
   world1.update(10);
 
-  expect(world1.snakeX).toEqual(-5);
-  expect(world1.snakeY).toEqual(0);
+  expect([world1.Snake.position.x, world1.Snake.position.y]).toStrictEqual([
+    -5, 0,
+  ]);
 });
