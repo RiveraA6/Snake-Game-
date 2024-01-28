@@ -26,7 +26,7 @@ class SnakeController {
     return this.slitherer.position;
   }
   /** Gets the direction of the snake */
-  public get snakeDirection() {
+  public get snakeDirection(): string {
     return this.slitherer.direction;
   }
 }

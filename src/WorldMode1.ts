@@ -3,9 +3,9 @@ import Point from "./Point";
 
 /** Class representing a world. */
 class WorldMode1 {
-  public Snake: Snake;
-  public Width: number;
-  public Height: number;
+  private Snake: Snake;
+  private Width: number;
+  private Height: number;
 
   /**
    * Create a world.
@@ -23,7 +23,11 @@ class WorldMode1 {
   public update(steps: number): void {
     this.Snake.move(steps);
   }
-  
+  /** Get the snake */
+  public get snake(): Snake {
+    return this.Snake;
+  }
+
   /** Get the width of the world */
   public get width(): number {
     return this.Width;
