@@ -1,4 +1,4 @@
-import world from "./WorldMode1";
+import world from "./WorldModel";
 import Snake from "./Snake";
 
 it("moves correctly", function () {
