@@ -1,6 +1,6 @@
 import Player from "./Player";
 import Snake from "./Snake";
-import WorldMode1 from "./WorldMode1";
+import WorldModel from "./WorldModel";
 import Point from "./Point";
 import SnakeController from "./SnakeController";
 class AWPlayer extends Player {
