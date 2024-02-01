@@ -1,6 +1,6 @@
 import Snake from "./Snake";
 import Point from "./Point";
-import World from "./WorldMode1";
+import World from "./WorldModel";
 
 class SnakeController {
   public slitherer: Snake;
