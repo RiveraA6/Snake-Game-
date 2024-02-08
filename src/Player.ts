@@ -5,8 +5,8 @@ import SnakeController from "./SnakeController";
  */
 abstract class Player {
   public sc: SnakeController;
-  constructor(snake: SnakeController) {
-    this.sc = snake;
+  constructor(sc: SnakeController) {
+    this.sc = sc;
   }
   abstract makeTurn(): void;
 }

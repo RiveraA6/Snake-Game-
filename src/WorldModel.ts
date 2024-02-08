@@ -2,7 +2,7 @@ import Snake from "./Snake";
 import Point from "./Point";
 
 /** Class representing a world. */
-class WorldMode1 {
+class WorldModel {
   private Snake: Snake;
   private Width: number;
   private Height: number;
@@ -37,4 +37,4 @@ class WorldMode1 {
     return this.Height;
   }
 }
-export default WorldMode1;
+export default WorldModel;

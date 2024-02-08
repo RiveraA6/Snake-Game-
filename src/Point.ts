@@ -5,9 +5,15 @@ class Point {
     this.xcoord = x;
     this.ycoord = y;
   }
+  /**
+   * Returns the x coordinate of the point
+   */
   public get x(): number {
     return this.xcoord;
   }
+  /**
+   * Returns the y coordinate of the point
+   */
   public get y(): number {
     return this.ycoord;
   }

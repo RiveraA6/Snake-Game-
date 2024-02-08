@@ -7,6 +7,11 @@ class SnakeController {
   public snakeWorld: World;
   public SnakeDirection: string;
 
+  /**
+   * Creates a new snake controller
+   * @param snake
+   * @param world
+   */
   constructor(snake: Snake, world: World) {
     this.slitherer = snake;
     this.snakeWorld = world;
