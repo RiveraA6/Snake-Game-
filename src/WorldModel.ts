@@ -1,12 +1,12 @@
 import Snake from "./Snake";
 import Point from "./Point";
-
+import WorldView from "./IWorldView";
 /** Class representing a world. */
 class WorldModel {
   private Snake: Snake;
   private Width: number;
   private Height: number;
-
+  private worldView: WorldView;
   /**
    * Create a world.
    * @param snake - The type of the snake.
@@ -15,6 +15,7 @@ class WorldModel {
     this.Snake = snake;
     this.Width = 100;
     this.Height = 100;
+    this.worldView = null;
   }
   /**
    * makes the snake move.
@@ -22,6 +23,7 @@ class WorldModel {
    */
   public update(steps: number): void {
     this.Snake.move(steps);
+    this.worldView.display(this);
   }
   /** Get the snake */
   public get snake(): Snake {
@@ -35,6 +37,9 @@ class WorldModel {
   /** Get the height of the world */
   public get height(): number {
     return this.Height;
+  }
+  set view(view: WorldView) {
+    this.worldView = view;
   }
 }
 export default WorldModel;

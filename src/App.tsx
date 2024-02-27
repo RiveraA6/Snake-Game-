@@ -4,6 +4,7 @@ import Snake from "./Snake";
 import display from "./display";
 import { useEffect } from "react";
 import world from "./WorldModel";
+import CanvasView from "./CanvasWorldView";
 export default function App() {
   // Add Snake Tests with display below
   useEffect(() => {
@@ -12,6 +13,8 @@ export default function App() {
     const bigSnake = new Snake("red");
     let earthSnake = new Snake("blue");
     const earth = new world(earthSnake);
+    let earthView = new CanvasView(3);
+    earth.view(earthView);
     document.getElementById("output")!.innerText = "OUTPUT:\n";
     display("hey");
     smallSnake.move(4);
