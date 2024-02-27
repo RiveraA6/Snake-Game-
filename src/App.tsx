@@ -14,7 +14,7 @@ export default function App() {
     let earthSnake = new Snake("blue");
     const earth = new world(earthSnake);
     let earthView = new CanvasView(3);
-    earth.view(earthView);
+    earth.view = earthView;
     document.getElementById("output")!.innerText = "OUTPUT:\n";
     display("hey");
     smallSnake.move(4);

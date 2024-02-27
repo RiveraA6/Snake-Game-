@@ -6,7 +6,7 @@ class WorldModel {
   private Snake: Snake;
   private Width: number;
   private Height: number;
-  private worldView: WorldView;
+  private worldView: WorldView | null;
   /**
    * Create a world.
    * @param snake - The type of the snake.
@@ -23,7 +23,9 @@ class WorldModel {
    */
   public update(steps: number): void {
     this.Snake.move(steps);
-    this.worldView.display(this);
+    if (this.worldView !== null) {
+      this.worldView.display(this);
+    }
   }
   /** Get the snake */
   public get snake(): Snake {
