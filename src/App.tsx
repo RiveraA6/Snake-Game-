@@ -13,7 +13,7 @@ export default function App() {
     const bigSnake = new Snake("red");
     let earthSnake = new Snake("blue");
     const earth = new world(earthSnake);
-    let earthView = new CanvasView(3);
+    let earthView = new CanvasView(1);
     earth.view = earthView;
     document.getElementById("output")!.innerText = "OUTPUT:\n";
     display("hey");
@@ -21,6 +21,8 @@ export default function App() {
     bigSnake.move(8);
     smallSnake.turn();
     earth.update(6);
+    earth.snake.turn();
+    earth.update(20);
     display(earthSnake.position.x, earthSnake.position.y);
     display(earthSnake.direction);
   }, []);
