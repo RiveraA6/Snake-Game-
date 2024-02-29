@@ -6,7 +6,7 @@ class LRKeyInputHandler implements IInputHandler {
   public constructor() {
     this.wasLeftArrowPushed = false;
     this.wasRightArrowPushed = false;
-    document.addEventListener("keydown", (event: KeyboardEvent) => {
+    window.addEventListener("keydown", (event: KeyboardEvent) => {
       if (event.key === "ArrowLeft") {
         console.log("Left arrow key pressed");
         this.wasLeftArrowPushed = true;
@@ -30,3 +30,4 @@ class LRKeyInputHandler implements IInputHandler {
     this.wasRightArrowPushed = false;
   }
 }
+export default LRKeyInputHandler;

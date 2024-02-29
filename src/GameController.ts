@@ -11,16 +11,24 @@ class GameController {
     this.player2_ = null;
   }
   public run(): void {
-    if (this.player1_ === null) {
-      let lastTime = 0;
-    }
+    let lastTime = 0;
+    const updateFrame = (milliseconds: number) => {
+      if (milliseconds - lastTime >= 250) {
+        this.player1_!.makeTurn();
+        this.player2_!.makeTurn();
+        this.world_.update(1);
+        lastTime += 250;
+      }
+      requestAnimationFrame(updateFrame);
+    };
+    requestAnimationFrame(updateFrame);
   }
-  public udateFrame(): void {
-    let render = milliseconds => {
-        console.log(milliseconds);
-        requestAnimationFrame(render);
-      };
-      requestAnimationFrame(render);
+  set player1(player: Player) {
+    this.player1_ = player;
+  }
+  set player2(player: Player) {
+    this.player2_ = player;
+  }
 }
 
 export default GameController;
