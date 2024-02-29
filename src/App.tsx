@@ -30,12 +30,6 @@ export default function App() {
     earth.view = earthView;
     document.getElementById("output")!.innerText = "OUTPUT:\n";
     display("hey");
-    smallSnake.move(4);
-    bigSnake.move(8);
-    smallSnake.turn();
-    earth.update(6);
-    earth.snake.turn();
-    earth.update(20);
     display(earthSnake.position.x, earthSnake.position.y);
     display(earthSnake.direction);
     earthController.run();

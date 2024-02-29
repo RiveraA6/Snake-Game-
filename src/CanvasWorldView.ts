@@ -20,6 +20,12 @@ class WorldCanvas extends WorldView {
       this.worldCanvas.width,
       this.worldCanvas.height,
     );
+    this.context.fillRect(
+      world.snake.position.x,
+      world.snake.position.y,
+      10,
+      10,
+    );
   }
 }
 export default WorldCanvas;
