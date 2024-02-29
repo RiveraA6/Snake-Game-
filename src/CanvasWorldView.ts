@@ -20,11 +20,12 @@ class WorldCanvas extends WorldView {
       this.worldCanvas.width,
       this.worldCanvas.height,
     );
+    this.context.fillStyle = "blue";
     this.context.fillRect(
       world.snake.position.x,
       world.snake.position.y,
-      10,
-      10,
+      this.scalingFactor,
+      this.scalingFactor,
     );
   }
 }

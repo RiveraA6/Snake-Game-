@@ -15,10 +15,9 @@ export default function App() {
   useEffect(() => {
     // Include your display statements to test below
     const smallSnake = new Snake("green");
-    const bigSnake = new Snake("red");
     let earthSnake = new Snake("blue");
     const earth = new world(earthSnake);
-    let earthView = new CanvasView(1);
+    let earthView = new CanvasView(10);
     let earthController = new GameController(earth);
     let earthInputHandler = new LRKeyInputHandler();
     let humanSnakeController = new SnakeController(earthSnake, earth);
