@@ -62,7 +62,7 @@ class AWPlayer extends Player {
       this.sc.turnSnakeRight();
     }
     if (
-      this.sc.snakePosition.x === this.sc.snakeWorld.width - 1 &&
+      this.sc.snakePosition.x === 0 &&
       this.sc.snakeDirection === "left" &&
       this.sc.snakePosition.y > this.sc.snakeWorld.height / 2
     ) {
