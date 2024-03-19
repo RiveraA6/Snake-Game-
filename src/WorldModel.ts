@@ -7,14 +7,15 @@ class WorldModel {
   private Width: number;
   private Height: number;
   private worldView: WorldView | null;
+
   /**
    * Create a world.
    * @param snake - The type of the snake.
    */
   constructor(snake: Snake) {
     this.Snake = snake;
-    this.Width = 100;
-    this.Height = 100;
+    this.Width = 50;
+    this.Height = 50;
     this.worldView = null;
   }
   /**
@@ -40,6 +41,9 @@ class WorldModel {
   public get height(): number {
     return this.Height;
   }
+  /** 
+   * set the view of the world 
+   */
   set view(view: WorldView) {
     this.worldView = view;
   }

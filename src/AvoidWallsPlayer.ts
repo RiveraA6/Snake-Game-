@@ -20,14 +20,14 @@ class AWPlayer extends Player {
       this.sc.turnSnakeLeft();
     }
     if (
-      this.sc.snakePosition.y === this.sc.snakeWorld.height &&
+      this.sc.snakePosition.y === this.sc.snakeWorld.height - 1 &&
       this.sc.snakeDirection === "down" &&
       this.sc.snakePosition.x < this.sc.snakeWorld.width / 2
     ) {
       this.sc.turnSnakeLeft();
     }
     if (
-      this.sc.snakePosition.x === this.sc.snakeWorld.width &&
+      this.sc.snakePosition.x === this.sc.snakeWorld.width - 1 &&
       this.sc.snakeDirection === "right" &&
       this.sc.snakePosition.y > this.sc.snakeWorld.height / 2
     ) {
@@ -48,21 +48,21 @@ class AWPlayer extends Player {
       this.sc.turnSnakeRight();
     }
     if (
-      this.sc.snakePosition.x === this.sc.snakeWorld.width &&
+      this.sc.snakePosition.x === this.sc.snakeWorld.width - 1 &&
       this.sc.snakeDirection === "right" &&
       this.sc.snakePosition.y < this.sc.snakeWorld.height / 2
     ) {
       this.sc.turnSnakeRight();
     }
     if (
-      this.sc.snakePosition.y === this.sc.snakeWorld.height &&
+      this.sc.snakePosition.y === this.sc.snakeWorld.height - 1 &&
       this.sc.snakeDirection === "down" &&
       this.sc.snakePosition.x > this.sc.snakeWorld.width / 2
     ) {
       this.sc.turnSnakeRight();
     }
     if (
-      this.sc.snakePosition.x === this.sc.snakeWorld.width &&
+      this.sc.snakePosition.x === this.sc.snakeWorld.width - 1 &&
       this.sc.snakeDirection === "left" &&
       this.sc.snakePosition.y > this.sc.snakeWorld.height / 2
     ) {
