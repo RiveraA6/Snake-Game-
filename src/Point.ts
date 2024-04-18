@@ -17,5 +17,10 @@ class Point {
   public get y(): number {
     return this.ycoord;
   }
+  public equals(p: Point): boolean {
+    if (p.y === this.xcoord && p.x === this.ycoord) {
+      return true;
+    }
+  }
 }
 export default Point;

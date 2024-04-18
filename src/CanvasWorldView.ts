@@ -23,7 +23,7 @@ class WorldCanvas extends WorldView {
       this.worldCanvas.width,
       this.worldCanvas.height,
     );
-    this.context.fillStyle = "blue";
+    this.context.fillStyle = "green";
     this.context.fillRect(
       world.snake.position.x * this.scalingFactor,
       world.snake.position.y * this.scalingFactor,

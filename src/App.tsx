@@ -15,8 +15,10 @@ export default function App() {
   useEffect(() => {
     // Include your display statements to test below
     let earthSnake = new Snake("blue");
-    const earth = new world(earthSnake);
+    const earth = new world();
+    earth.addSnake(earthSnake);
     let earthView = new CanvasView(10);
+    earth.addView(earthView);
     let earthController = new GameController(earth);
     let earthInputHandler = new LRKeyInputHandler();
     let humanSnakeController = new SnakeController(earthSnake, earth);
@@ -25,7 +27,7 @@ export default function App() {
     let avoidWallsPlayer = new AWPlayer(avoidWallsController);
     earthController.player1 = humanPlayer;
     earthController.player2 = avoidWallsPlayer;
-    earth.view = earthView;
+    earth.addView(earthView);
     document.getElementById("output")!.innerText = "OUTPUT:\n";
     display("hey");
     display(earthSnake.position.x, earthSnake.position.y);
@@ -33,7 +35,6 @@ export default function App() {
     earthController.run();
   }, []);
   return (
-    
     <div className="App">
       <h1>Hello CodeSandbox</h1>
       <h2>Start editing to see some magic happen!</h2>
