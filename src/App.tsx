@@ -1,5 +1,6 @@
 import "./App.css";
 import "./App.css";
+import Point from "./Point";
 import Snake from "./Snake";
 import display from "./display";
 import { useEffect } from "react";
@@ -14,7 +15,8 @@ export default function App() {
   // Add Snake Tests with display below
   useEffect(() => {
     // Include your display statements to test below
-    let earthSnake = new Snake("blue");
+    let startPoint = new Point(5, 5);
+    let earthSnake = new Snake("green", startPoint, 3);
     const earth = new world();
     earth.addSnake(earthSnake);
     let earthView = new CanvasView(10);

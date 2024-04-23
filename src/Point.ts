@@ -20,6 +20,8 @@ class Point {
   public equals(p: Point): boolean {
     if (p.y === this.xcoord && p.x === this.ycoord) {
       return true;
+    } else {
+      return false;
     }
   }
 }

@@ -32,6 +32,11 @@ class WorldModel {
   public update(steps: number): void {
     this.allSnakes.forEach((x) => x.move(steps));
     this.allViews.forEach((x) => this.viewDisplay(x));
+    let allCollided = [];
+    for (let index = this.allSnakes.length - 1; index > 0; index = index - 1)
+      this.allSnakes.forEach((x) => if(x.didcollide(this.allSnakes[index]) && allCollided.every(y => y != x)) {
+        allCollided.push(x)
+      })
   }
   /** Gets the snakes */
   public get snakes(): Array {
