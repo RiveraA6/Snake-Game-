@@ -25,12 +25,17 @@ class WorldCanvas extends WorldView {
     );
     this.context.fillStyle = "green";
     for (let index = 0; index < world.snakes.length; index = index + 1)
-      this.context.fillRect(
-        world.snakes[index].position.x * this.scalingFactor,
-        world.snakes[index].position.y * this.scalingFactor,
-        10,
-        10,
-      );
+      for (
+        let indexx = 0;
+        indexx < world.snakes[index].part.length;
+        indexx = indexx + 1
+      )
+        this.context.fillRect(
+          world.snakes[index].part[indexx].x * this.scalingFactor,
+          world.snakes[index].part[indexx].y * this.scalingFactor,
+          10,
+          10,
+        );
   }
   /*
    * gets the height of the canvas world

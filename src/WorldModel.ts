@@ -3,10 +3,10 @@ import Point from "./Point";
 import WorldView from "./IWorldView";
 /** Class representing a world. */
 class WorldModel {
-  private allSnakes: Array;
+  private allSnakes: Snake[];
   private Width: number;
   private Height: number;
-  private allViews: Array;
+  private allViews: WorldView[];
 
   /**
    * Create a world.
@@ -18,28 +18,26 @@ class WorldModel {
     this.Height = 50;
     this.allViews = [];
   }
-  private viewDisplay(x: WorldView): boolean {
-    if (x !== null) {
-      x.display(this);
-    } else {
-      return false;
-    }
-  }
+
   /**
    * makes the snake move.
    * @param steps - The number of steps the snake will take without feet somehow.
    */
   public update(steps: number): void {
     this.allSnakes.forEach((x) => x.move(steps));
-    this.allViews.forEach((x) => this.viewDisplay(x));
-    let allCollided = [];
-    for (let index = this.allSnakes.length - 1; index > 0; index = index - 1)
-      this.allSnakes.forEach((x) => if(x.didcollide(this.allSnakes[index]) && allCollided.every(y => y != x)) {
-        allCollided.push(x)
-      })
+    this.allViews.forEach((x) => x.display(this));
+    let allCollided: Snake[] = [];
+    for (let index = 0; index < this.allSnakes.length; index = index + 1) {
+      this.allSnakes.forEach((x) => {
+        if (x.didCollide(this.allSnakes[index])) {
+          allCollided.push(x);
+        }
+      });
+    }
   }
+
   /** Gets the snakes */
-  public get snakes(): Array {
+  public get snakes(): Snake[] {
     return this.allSnakes;
   }
 

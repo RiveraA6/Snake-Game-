@@ -16,7 +16,7 @@ export default function App() {
   useEffect(() => {
     // Include your display statements to test below
     let startPoint = new Point(5, 5);
-    let earthSnake = new Snake("green", startPoint, 3);
+    let earthSnake = new Snake("green", startPoint, 10);
     const earth = new world();
     earth.addSnake(earthSnake);
     let earthView = new CanvasView(10);

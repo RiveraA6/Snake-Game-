@@ -5,14 +5,14 @@ import Point from "./Point";
 class Snake {
   private Direction: string;
   public Color: string;
-  private currentParts: Array;
+  private currentParts: Point[];
 
   /**
    * Create a snake.
    * @param snakecolor - The color of the snake.
    */
   constructor(snakecolor: string, startPosition: Point, size: number) {
-    this.currentParts.push(startPosition);
+    this.currentParts = [startPosition];
     this.Direction = "right";
     this.Color = snakecolor;
     for (let index = 1; index < size; index = index + 1)
@@ -26,6 +26,9 @@ class Snake {
    */
   public get position() {
     return this.currentParts[0];
+  }
+  public get part() {
+    return this.currentParts;
   }
 
   /**
