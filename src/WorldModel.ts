@@ -3,34 +3,42 @@ import Point from "./Point";
 import WorldView from "./IWorldView";
 /** Class representing a world. */
 class WorldModel {
-  private Snake: Snake;
+  private allSnakes: Snake[];
   private Width: number;
   private Height: number;
-  private worldView: WorldView | null;
+  private allViews: WorldView[];
 
   /**
    * Create a world.
    * @param snake - The type of the snake.
    */
-  constructor(snake: Snake) {
-    this.Snake = snake;
+  constructor() {
+    this.allSnakes = [];
     this.Width = 50;
     this.Height = 50;
-    this.worldView = null;
+    this.allViews = [];
   }
+
   /**
    * makes the snake move.
    * @param steps - The number of steps the snake will take without feet somehow.
    */
   public update(steps: number): void {
-    this.Snake.move(steps);
-    if (this.worldView !== null) {
-      this.worldView.display(this);
+    this.allSnakes.forEach((x) => x.move(steps));
+    this.allViews.forEach((x) => x.display(this));
+    let allCollided: Snake[] = [];
+    for (let index = 0; index < this.allSnakes.length; index = index + 1) {
+      this.allSnakes.forEach((x) => {
+        if (x.didCollide(this.allSnakes[index])) {
+          allCollided.push(x);
+        }
+      });
     }
   }
-  /** Get the snake */
-  public get snake(): Snake {
-    return this.Snake;
+
+  /** Gets the snakes */
+  public get snakes(): Snake[] {
+    return this.allSnakes;
   }
 
   /** Get the width of the world */
@@ -41,11 +49,17 @@ class WorldModel {
   public get height(): number {
     return this.Height;
   }
-  /** 
-   * set the view of the world 
+  /**
+   * adds to the list of views
    */
-  set view(view: WorldView) {
-    this.worldView = view;
+  public addView(v: WorldView) {
+    this.allViews.push(v);
+  }
+  /**
+   * adds to the list of snakes
+   */
+  public addSnake(s: Snake) {
+    this.allSnakes.push(s);
   }
 }
 export default WorldModel;

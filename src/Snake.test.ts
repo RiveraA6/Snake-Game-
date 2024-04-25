@@ -1,8 +1,10 @@
 import Snake from "./Snake";
+import Point from "./Point";
 
 const moveSnakes = (times: number) => {
-  const greenSnake = new Snake("green");
-  const maroonSnake = new Snake("maroon");
+  let startPoint = new Point(5, 5);
+  const greenSnake = new Snake("green", startPoint, 1);
+  const maroonSnake = new Snake("maroon", startPoint, 1);
   let mtotalSquares = 0;
   let gtotalSquares = 0;
   let left = false;
