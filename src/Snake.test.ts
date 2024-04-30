@@ -2,7 +2,7 @@ import Snake from "./Snake";
 import Point from "./Point";
 
 const moveSnakes = (times: number) => {
-  let startPoint = new Point(5, 5);
+  let startPoint = new Point(0, 0);
   const greenSnake = new Snake("green", startPoint, 1);
   const maroonSnake = new Snake("maroon", startPoint, 1);
   let mtotalSquares = 0;
